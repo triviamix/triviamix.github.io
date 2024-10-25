@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Triviamix</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="estilos.css">
+        <script src="javascript.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+        <link rel="icon" href="imágenes/logo.ico">
+    </head>
+    <body>
+        <div class="título" id="título" style="display: inline-block; opacity: 1;">
+            <img onclick="músicaControl()" class="música" id="música" src="imágenes/músicaOff.png">
+            <img class="título__logo" id="logo" src="imágenes/logo.png" id="logo">
+            <input class="título__jugar" onclick="jugar('#título','#seleccioneMateria')" type="button" value="JUGAR" id="botón">
+        </div>
+        <div class="seleccioneMateria" id="seleccioneMateria" style="display: none; opacity: 0;">
+            <img onclick="músicaControl()" class="música" id="música2" src="imágenes/músicaOff.png">
+            <img onclick="jugar('#seleccioneMateria','#título')" class="casa" src="imágenes/casa.png">
+            <h1>Seleccione la materia</h1>
+            <div class="materia" onclick="materiaAleatoria(); siPreguntar()"><h2>Aleatoria</h2></div>
+            <div class="materia" onclick="matemática(); siPreguntar()"><h2>Matemática</h2></div>
+            <div class="materia" onclick="química(); siPreguntar()"><h2>Química</h2></div>
+            <div class="materia" onclick="inglés(); siPreguntar()"><h2>Inglés</h2></div>
+            <div class="materia" onclick="música(); siPreguntar()"><h2>Música</h2></div>
+            <div class="materia" onclick="lengua(); siPreguntar()"><h2>Lengua</h2></div>
+            <div class="materia" onclick="historia(); siPreguntar()"><h2>Historia</h2></div>
+            <div class="materia" onclick="biología(); siPreguntar()"><h2>Biología</h2></div>
+        </div>
+        <div class="trivia" id="trivia" style="display: none; opacity: 0;">
+            <img onclick="músicaControl()" class="música" id="música3" src="imágenes/músicaOff.png">
+            <img onclick="jugar('#trivia','#título'); reiniciarPuntos()" class="casa" src="imágenes/casa.png">
+            <h2 id="puntos">Puntos: 0</h2>
+            <h2 id="pregunta"></h2>
+            <img src="" id="imágenPregunta" style="display: none;">
+            <audio src="" controls style="display: none;" id="audioPregunta"></audio>
+            <h2 class="materia" onclick="comprobarRespuesta(1)" style="width: 350px; height: 60px; background: #88f;" id="opción1"></h2>
+            <h2 class="materia" onclick="comprobarRespuesta(2)" style="width: 350px; height: 60px; background: #88f;" id="opción2"></h2>
+            <h2 class="materia" onclick="comprobarRespuesta(3)" style="width: 350px; height: 60px; background: #88f;" id="opción3"></h2>
+        </div>
+        <div id="none"></div>
+        <audio src="audio/audio.weba" loop id="audio"></audio>
+    </body>
+</html>
